@@ -73,9 +73,61 @@ const sidebars = {
       },
       items: [
         {
-          type: "doc",
-          id: "sql-language/sql-syntax",
+          type: "category",
           label: "SQL 문법",
+          link: {
+            type: "doc",
+            id: "sql-language/sql-syntax/index",
+          },
+          items: [
+            {
+              type: "category",
+              label: "Lexical Structure",
+              link: {
+                type: "doc",
+                id: "sql-language/sql-syntax/lexical-structure/index",
+              },
+              items: [
+                "sql-language/sql-syntax/lexical-structure/comments",
+                "sql-language/sql-syntax/lexical-structure/constants",
+                "sql-language/sql-syntax/lexical-structure/identifiers-keywords",
+                "sql-language/sql-syntax/lexical-structure/operator-precedence",
+                "sql-language/sql-syntax/lexical-structure/operators",
+                "sql-language/sql-syntax/lexical-structure/special-characters",
+              ]
+            }, 
+            {
+              type: "category",
+              label: "값 표현식",
+              items: [
+                "sql-language/sql-syntax/value-expressions",
+                "sql-language/sql-syntax/column-references",
+                "sql-language/sql-syntax/positional-parameters", 
+                "sql-language/sql-syntax/subscripts",
+                "sql-language/sql-syntax/field-selection", 
+                "sql-language/sql-syntax/operator-invocations", 
+                "sql-language/sql-syntax/function-calls",
+                "sql-language/sql-syntax/aggregate-expressions", 
+                "sql-language/sql-syntax/window-functions",
+                "sql-language/sql-syntax/type-casts",
+                "sql-language/sql-syntax/collation-expressions", 
+                "sql-language/sql-syntax/scalar-subqueries",
+                "sql-language/sql-syntax/array-constructors", 
+                "sql-language/sql-syntax/row-constructors", 
+                "sql-language/sql-syntax/expression-evaluation-rules",
+              ],
+            },
+            {
+              type: "category",
+              label: "함수 호출",
+              items: [
+                "sql-language/sql-syntax/calling-functions",
+                "sql-language/sql-syntax/positional-notation", 
+                "sql-language/sql-syntax/named-notation", 
+                "sql-language/sql-syntax/mixed-notation",
+              ],
+            },
+          ],
         },
         {
           type: "doc",
@@ -133,8 +185,7 @@ const sidebars = {
           label: "병렬 쿼리",
         },
       ],
-    },
-    
+    },    
   ],
 };
 
