@@ -11,14 +11,52 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install -y \
             make xsltproc docbook docbook-xml docbook-xsl \
-            libxml2-utils perl
+            libxml2-utils perl libreadline-dev
+
+      - name: Configure PostgreSQL Docs
+        run: |
+            ./configure
+
+      - name: Configure PostgreSQL Docs
+        run: |
+            ./configure
 
       - name: Build Documentation
-        run: make -C doc/src/sgml STYLE=website html -B
+        run: make -C doc/src/sgml STYLE=website html
+
+      - name: Move to Public Directory
+        run: |
+          mkdir -p public
+          mv doc/src/sgml/html/* public/
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgresql-docs
+          path: public 
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download built documentation
+        uses: actions/download-artifact@v4
+        with:
+          name: postgresql-docs
+          path: public
+
+      - name: Deploy to Vercel
+        run: |
+          npm install -g vercel
+          vercel --prod --yes \
+            --token=${{ secrets.VERCEL_TOKEN }}
