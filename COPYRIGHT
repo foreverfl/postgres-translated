@@ -1,23 +1,20 @@
-PostgreSQL Database Management System
-(formerly known as Postgres, then as Postgres95)
+PostgreSQL 데이터베이스 관리 시스템
+(이전에는 Postgres, 그 후에는 Postgres95로 알려짐)
 
-Portions Copyright (c) 1996-2025, PostgreSQL Global Development Group
+일부 저작권 (c) 1996-2025, PostgreSQL 글로벌 개발 그룹
 
-Portions Copyright (c) 1994, The Regents of the University of California
+일부 저작권 (c) 1994, 캘리포니아 대학교 이사회
 
-Permission to use, copy, modify, and distribute this software and its
-documentation for any purpose, without fee, and without a written agreement
-is hereby granted, provided that the above copyright notice and this
-paragraph and the following two paragraphs appear in all copies.
+이 소프트웨어 및 그 문서를 사용, 복사, 수정 및 배포할 수 있는 권한은
+비용 없이, 서면 계약 없이, 위의 저작권 고지와 이 문단 및 다음 두 문단이
+모든 사본에 포함되는 조건으로 부여됩니다.
 
-IN NO EVENT SHALL THE UNIVERSITY OF CALIFORNIA BE LIABLE TO ANY PARTY FOR
-DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING
-LOST PROFITS, ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS
-DOCUMENTATION, EVEN IF THE UNIVERSITY OF CALIFORNIA HAS BEEN ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.
+캘리포니아 대학교는 이 소프트웨어 및 그 문서의 사용으로 인해 발생하는
+직접적, 간접적, 특별, 부수적 또는 결과적 손해(손실된 이익 포함)에 대해
+어떠한 당사자에게도 책임을 지지 않습니다. 캘리포니아 대학교가 그러한
+손해의 가능성을 사전에 알고 있었더라도 마찬가지입니다.
 
-THE UNIVERSITY OF CALIFORNIA SPECIFICALLY DISCLAIMS ANY WARRANTIES,
-INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
-ON AN "AS IS" BASIS, AND THE UNIVERSITY OF CALIFORNIA HAS NO OBLIGATIONS TO
-PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+캘리포니아 대학교는 상품성 및 특정 목적에 대한 적합성에 대한 묵시적
+보증을 포함하되 이에 국한되지 않는 어떠한 보증도 명시적으로 부인합니다.
+여기에서 제공되는 소프트웨어는 "있는 그대로" 제공되며, 캘리포니아 대학교는
+유지보수, 지원, 업데이트, 향상 또는 수정에 대한 의무가 없습니다.

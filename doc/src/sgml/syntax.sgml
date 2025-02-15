@@ -9,73 +9,63 @@
  </indexterm>
 
  <para>
-  This chapter describes the syntax of SQL.  It forms the foundation
-  for understanding the following chapters which will go into detail
-  about how SQL commands are applied to define and modify data.
+  이 장에서는 SQL 구문에 대해 설명합니다. 이는 SQL 명령을 사용하여 데이터를 정의하고 
+  수정하는 방법을 자세히 설명하는 이후 장들을 이해하기 위한 기초가 됩니다.
  </para>
 
  <para>
-  We also advise users who are already familiar with SQL to read this
-  chapter carefully because it contains several rules and concepts that
-  are implemented inconsistently among SQL databases or that are
-  specific to <productname>PostgreSQL</productname>.
+  또한 이미 SQL에 익숙한 사용자들도 이 장을 주의 깊게 읽을 것을 권장합니다. 
+  여기에는 SQL 데이터베이스들 간에 일관되지 않게 구현되어 있거나 
+  <productname>PostgreSQL</productname>에만 특화된 여러 규칙과 개념들이 포함되어 있기 때문입니다.
  </para>
 
  <sect1 id="sql-syntax-lexical">
-  <title>Lexical Structure</title>
+   <title>어휘 구조</title>
 
   <indexterm>
    <primary>token</primary>
   </indexterm>
 
   <para>
-   SQL input consists of a sequence of
-   <firstterm>commands</firstterm>.  A command is composed of a
-   sequence of <firstterm>tokens</firstterm>, terminated by a
-   semicolon (<quote>;</quote>).  The end of the input stream also
-   terminates a command.  Which tokens are valid depends on the syntax
-   of the particular command.
+   SQL 입력은 일련의 <firstterm>명령어</firstterm>들로 구성됩니다. 명령어는 
+   세미콜론(<quote>;</quote>)으로 끝나는 일련의 <firstterm>토큰</firstterm>들로 
+   구성됩니다. 입력 스트림의 끝 또한 명령어를 종료합니다. 어떤 토큰이 유효한지는 
+   특정 명령어의 구문에 따라 다릅니다.
   </para>
 
   <para>
-   A token can be a <firstterm>key word</firstterm>, an
-   <firstterm>identifier</firstterm>, a <firstterm>quoted
-   identifier</firstterm>, a <firstterm>literal</firstterm> (or
-   constant), or a special character symbol.  Tokens are normally
-   separated by whitespace (space, tab, newline), but need not be if
-   there is no ambiguity (which is generally only the case if a
-   special character is adjacent to some other token type).
+   토큰은 <firstterm>키워드</firstterm>, <firstterm>식별자</firstterm>, 
+   <firstterm>따옴표로 묶인 식별자</firstterm>, <firstterm>리터럴</firstterm>(또는 상수), 
+   또는 특수 문자 기호가 될 수 있습니다. 토큰들은 일반적으로 공백(스페이스, 탭, 줄바꿈)으로 
+   구분되지만, 모호하지 않은 경우(일반적으로 특수 문자가 다른 토큰 유형과 인접한 경우에만)
+   구분할 필요가 없습니다.
   </para>
 
    <para>
-    For example, the following is (syntactically) valid SQL input:
+    예를 들어, 다음은 (구문적으로) 유효한 SQL 입력입니다:
 <programlisting>
 SELECT * FROM MY_TABLE;
 UPDATE MY_TABLE SET A = 5;
 INSERT INTO MY_TABLE VALUES (3, 'hi there');
 </programlisting>
-    This is a sequence of three commands, one per line (although this
-    is not required; more than one command can be on a line, and
-    commands can usefully be split across lines).
+    이는 한 줄당 하나씩, 세 개의 명령어로 이루어진 시퀀스입니다(반드시 이렇게 할 필요는 
+    없습니다; 한 줄에 여러 명령어를 넣을 수 있고, 명령어를 여러 줄에 걸쳐 나눌 수도 있습니다).
    </para>
 
   <para>
-   Additionally, <firstterm>comments</firstterm> can occur in SQL
-   input.  They are not tokens, they are effectively equivalent to
-   whitespace.
+   추가로, SQL 입력에는 <firstterm>주석</firstterm>이 포함될 수 있습니다. 
+   주석은 토큰이 아니며, 사실상 공백과 동등합니다.
   </para>
 
   <para>
-   The SQL syntax is not very consistent regarding what tokens
-   identify commands and which are operands or parameters.  The first
-   few tokens are generally the command name, so in the above example
-   we would usually speak of a <quote>SELECT</quote>, an
-   <quote>UPDATE</quote>, and an <quote>INSERT</quote> command.  But
-   for instance the <command>UPDATE</command> command always requires
-   a <token>SET</token> token to appear in a certain position, and
-   this particular variation of <command>INSERT</command> also
-   requires a <token>VALUES</token> in order to be complete.  The
-   precise syntax rules for each command are described in <xref linkend="reference"/>.
+   SQL 구문은 어떤 토큰이 명령어를 식별하고 어떤 것이 피연산자나 매개변수인지에 
+   대해 매우 일관적이지 않습니다. 처음 몇 개의 토큰은 일반적으로 명령어 이름이므로, 
+   위의 예시에서는 보통 <quote>SELECT</quote>, <quote>UPDATE</quote>, 
+   <quote>INSERT</quote> 명령어라고 말합니다. 하지만 예를 들어 
+   <command>UPDATE</command> 명령어는 항상 특정 위치에 <token>SET</token> 토큰이 
+   나타나야 하며, 이 특정 형태의 <command>INSERT</command>도 완성되려면 
+   <token>VALUES</token>가 필요합니다. 각 명령어에 대한 정확한 구문 규칙은 
+   <xref linkend="reference"/>에 설명되어 있습니다.
   </para>
 
   <sect2 id="sql-syntax-identifiers">
