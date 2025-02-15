@@ -1,0 +1,24 @@
+name: Deploy PostgreSQL Docs to Vercel
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            make xsltproc docbook docbook-xml docbook-xsl \
+            libxml2-utils perl
+
+      - name: Build Documentation
+        run: make -C doc/src/sgml STYLE=website html -B

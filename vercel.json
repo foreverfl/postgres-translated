@@ -1,0 +1,17 @@
+{
+    "builds": [
+      {
+        "src": "doc/src/sgml",
+        "use": "@vercel/static-build",
+        "config": {
+          "buildCommand": "make -C doc/src/sgml STYLE=website html -B"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/doc/src/sgml/html/$1"
+      }
+    ]
+  }
